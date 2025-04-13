@@ -59,6 +59,6 @@ export const getTodoById = async ({ id }: { id: number }) => {
       complete: TodosTable.complete,
     })
     .from(TodosTable)
-    .where(eq(TodosTable.id, id));
+    .where(eq(TodosTable.id, id))
   return td;
 };
