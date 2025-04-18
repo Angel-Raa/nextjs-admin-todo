@@ -1,5 +1,5 @@
 // Admin Dashboard https://tailwindcomponents.com/component/dashboard-12
-import { Sidebar, TopMenu, WidgetItem } from "@/app/components";
+import { Sidebar, TopMenu } from "@/app/components";
 
 export default function DashboardLayout({
   children,
@@ -22,13 +22,7 @@ export default function DashboardLayout({
         {/* TODO: Contenido en el Layout.tsx */}
         <div className="px-6 pt-6">
           {/* TODO: dashboard/page.tsx  */}
-          {/* Este contenido va dentro de page.tsx */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* TODO: src/components <WidgetItem /> */}
-
-            <WidgetItem />
-            {/* TODO: Fin <WidgetItem /> */}
-          </div>
+          {children}
           {/* TODO: fin del dashboard/page.tsx  */}
 
           {/* TODO: Fin del contenido en el Layout.tsx */}

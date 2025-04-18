@@ -18,3 +18,4 @@ export const TodosTable = pgTable("todos", {
 
 
 export type TodosInsert = typeof TodosTable.$inferInsert;
+export type TodoSelect = typeof TodosTable.$inferSelect;
