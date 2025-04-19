@@ -48,6 +48,20 @@ export const updateTodo = async ({
     .where(eq(TodosTable.id, id));
 };
 
+export const updateTodoCompletion = async ({
+  id,
+  complete,
+}: {
+  id: number;
+  complete?: boolean;
+}) => {
+  await db
+    .update(TodosTable)
+    .set({
+      complete,
+    })
+    .where(eq(TodosTable.id, id));
+};
 export const deleteTodo = async ({ id }: { id: number }) => {
   await db.delete(TodosTable).where(eq(TodosTable.id, id));
 };
