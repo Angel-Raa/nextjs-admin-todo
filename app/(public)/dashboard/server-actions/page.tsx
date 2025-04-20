@@ -1,6 +1,11 @@
 import { getAllTodos } from "@/app/actions/todo-actions";
 import { NewTodo, TodoGrid } from "@/app/components";
+import { Metadata } from "next";
 
+export const metadata:Metadata = {
+  title:'SERVER ACTIONS - TODOS',
+  description:"SERVER ACTIONS - TODOS "
+}
 export default async function ServerActions() {
   const todos = await getAllTodos();
   return (

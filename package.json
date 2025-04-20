@@ -11,6 +11,7 @@
     "db:studio": "bunx  drizzle-kit studio --port 3005 --verbose"
   },
   "dependencies": {
+    "cookies-next": "^5.1.0",
     "drizzle-orm": "^0.41.0",
     "next": "15.2.3",
     "pg": "^8.14.1",

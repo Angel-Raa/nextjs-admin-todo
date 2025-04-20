@@ -1,5 +1,5 @@
+import { getTodos } from "@/app/actions/todo-actions";
 import { db } from "@/lib/db";
-import { getTodos } from "@/lib/db/actions";
 import { TodosInsert, TodosTable } from "@/lib/db/schema";
 import { NextRequest, NextResponse } from "next/server";
 import * as yup from "yup";
