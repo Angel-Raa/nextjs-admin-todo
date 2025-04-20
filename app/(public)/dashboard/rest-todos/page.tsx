@@ -1,5 +1,6 @@
+import { getTodos } from "@/app/actions/todo-actions";
 import { TodoGrid } from "@/app/components";
-import { getTodos } from "@/lib/db/actions";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

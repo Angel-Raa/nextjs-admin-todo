@@ -1,5 +1,5 @@
+import { getTodoById } from "@/app/actions/todo-actions";
 import { db } from "@/lib/db";
-import { getTodoById } from "@/lib/db/actions";
 import { TodosInsert, TodosTable } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";

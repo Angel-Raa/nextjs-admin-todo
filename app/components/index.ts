@@ -5,4 +5,5 @@ export { SidebarItem } from "./shared/SidebarItem";
 
 // TODOS
 export { TodoGrid } from "./todos/TodosGrid";
-export {TodosItem} from "./todos/TodosItem"
+export { TodosItem } from "./todos/TodosItem";
+export { NewTodo } from "./todos/NewTodo";
