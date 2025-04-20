@@ -5,6 +5,7 @@ import {
   IoCheckboxOutline,
   IoCodeOutline,
   IoListOutline,
+  IoPrintOutline,
 } from "react-icons/io5";
 
 const menuItems = [
@@ -27,6 +28,11 @@ const menuItems = [
     icon: <IoCodeOutline size={50} />,
     path: "/dashboard/cookies",
     title: "COOKIES",
+  },
+  {
+    icon: <IoPrintOutline size={50} />,
+    path: "/dashboard/products",
+    title: "PRODUCTOS - SERVER ACTIONS",
   },
 ];
 export const Sidebar = () => {
