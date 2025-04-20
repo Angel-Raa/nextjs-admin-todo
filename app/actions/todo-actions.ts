@@ -1,7 +1,7 @@
 "use server";
 import { db } from "@/lib/db";
 import { TodosTable } from "@/lib/db/schema";
-import { eq, sql } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export const getTodos = async ({
@@ -19,6 +19,19 @@ export const getTodos = async ({
     .offset((page - 1) * pageSize);
 };
 
+export const getAllTodos = async () => {
+  try {
+    const todos = await db
+      .select()
+      .from(TodosTable)
+      .orderBy(desc(TodosTable.createdAt)); // Orden descendente para obtener los más recientes primero
+    return todos;
+    
+  } catch (error) {
+    console.error('Error fetching todos:', error);
+    throw new Error('Failed to retrieve todos');
+  }
+};
 export const createTodo = async ({
   description,
   complete,

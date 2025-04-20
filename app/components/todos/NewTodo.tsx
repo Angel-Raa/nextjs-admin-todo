@@ -11,9 +11,7 @@ export const NewTodo = (): React.JSX.Element => {
     await createTodo({ description });
     setDescription("");
   };
-  const onDelete = async () => {
-    await deleteCompletedTodos();
-  };
+
   return (
     <form className="flex w-full gap-2" onSubmit={onSubmit}>
       <input
@@ -36,7 +34,7 @@ export const NewTodo = (): React.JSX.Element => {
       </button>
 
       <button
-        onClick={onDelete}
+        onClick={deleteCompletedTodos}
         type="button"
         className="flex items-center justify-center rounded-md bg-red-400 px-4 py-3 
                      text-white font-medium hover:bg-red-500 active:bg-red-600 
