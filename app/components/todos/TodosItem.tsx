@@ -18,7 +18,7 @@ const pendingClasses = "bg-red-50 border-red-300 text-red-700";
 export const TodosItem = ({ complete, description, id, toggleTodo }: Props) => {
   return (
     <div
-      onClick={() => toggleTodo({ id, complete })}
+      onClick={() => toggleTodo({ id, complete: !complete })}
       className={`${baseClasses} ${complete ? doneClasses : pendingClasses}`}
     >
       <p className={`font-medium ${complete ? "line-through" : ""}`}>
