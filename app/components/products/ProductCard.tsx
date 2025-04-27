@@ -1,5 +1,8 @@
+"use client";
 import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { StarIcon } from "./StarIcon";
+import { addProductCart, removeProductCart } from "@/app/actions/shopping-actions";
+import { useRouter } from "next/navigation";
 interface Props {
   id: string;
   name: string;
@@ -9,12 +12,23 @@ interface Props {
 }
 
 export const ProductCard = ({
+  id,
   name,
   price,
   rating,
   reviewCount = 0,
 }: Props) => {
-    const roundedRating = Math.round(rating * 2) / 2;
+  const router = useRouter();
+  const roundedRating = Math.round(rating * 2) / 2;
+  const onAddToCart = () => {
+    addProductCart({ id });
+    router.refresh();
+  };
+  const onDeleteCookie = () => {
+    removeProductCart({id})
+    
+    router.refresh();
+  }
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 dark:bg-gray-800">
       {/* Imagen del producto (puedes agregar una imagen real) */}
@@ -74,12 +88,14 @@ export const ProductCard = ({
 
           <div className="flex space-x-2">
             <button
+              onClick={() => onAddToCart()}
               className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
               aria-label="Añadir al carrito"
             >
               <IoAddCircleOutline size={22} />
             </button>
             <button
+            onClick={() => onDeleteCookie()}
               className="p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800"
               aria-label="Eliminar"
             >
