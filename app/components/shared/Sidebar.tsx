@@ -5,8 +5,11 @@ import {
   IoCheckboxOutline,
   IoCodeOutline,
   IoListOutline,
+  IoPersonOutline,
   IoPrintOutline,
 } from "react-icons/io5";
+import { getServerSession } from "next-auth";
+import { authHandler } from "@/app/api/auth/[...nextauth]/route";
 
 const menuItems = [
   {
@@ -34,15 +37,23 @@ const menuItems = [
     path: "/dashboard/products",
     title: "PRODUCTOS - SERVER ACTIONS",
   },
+  {
+    icon: <IoPersonOutline size={50} />,
+    path: "/dashboard/profile",
+    title: "PROFILE",
+  },
 ];
-export const Sidebar = () => {
+export const Sidebar = async () => {
+  const session = await getServerSession(authHandler) as { user?: { name?: string } };
   return (
     <>
       <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
         <div>
           <div className="mt-8 text-center">
             <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-              Angel Aguero
+              {
+                session.user?.name
+              }
             </h5>
           </div>
 
