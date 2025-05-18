@@ -1,4 +1,3 @@
-import { CiLogout } from "react-icons/ci";
 import { SidebarItem } from "./SidebarItem";
 import {
   IoCalendarOutline,
@@ -10,6 +9,7 @@ import {
 } from "react-icons/io5";
 import { getServerSession } from "next-auth";
 import { authHandler } from "@/app/api/auth/[...nextauth]/route";
+import { Logout } from "./Logout";
 
 const menuItems = [
   {
@@ -51,9 +51,7 @@ export const Sidebar = async () => {
         <div>
           <div className="mt-8 text-center">
             <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-              {
-                session.user?.name
-              }
+              
             </h5>
           </div>
 
@@ -67,10 +65,7 @@ export const Sidebar = async () => {
         </div>
 
         <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-          <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-            <CiLogout />
-            <span className="group-hover:text-gray-700">Logout</span>
-          </button>
+         <Logout />
         </div>
       </aside>
     </>
